@@ -1,4 +1,4 @@
-import React , { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../../ClientComponent/Header';
 import Footer from '../../ClientComponent/Footer';
@@ -20,15 +20,17 @@ const ShopPage = () => {
       .then(res => setShopData_(res.data))
       .catch(err => console.error(err));
   }, [shopId]);
-
+  if (performance.getEntriesByType("navigation")[0].type === "reload") {
+    window.location.href = "/";
+  }
   return (
     <>
-    <Header shop={shopData_}/>
-    <Hero  shop={shopData_}/>
-    <About  shop={shopData_}/>
-    <Products  shop={shopData_}/>
-   <Contact  shop={shopData_}/>
-    <Footer />
+      <Header shop={shopData_} />
+      <Hero shop={shopData_} />
+      <About shop={shopData_} />
+      <Products shop={shopData_} />
+      <Contact shop={shopData_} />
+      <Footer />
     </>
   )
 }
