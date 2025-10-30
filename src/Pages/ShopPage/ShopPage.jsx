@@ -19,10 +19,7 @@ const ShopPage = () => {
     axios.get(`https://mrgenie.pythonanywhere.com/api/shop/${shopId}/`)
       .then(res => setShopData_(res.data))
       .catch(err => console.error(err));
-  }, [shopId]);
-  if (performance.getEntriesByType("navigation")[0].type === "reload") {
-    window.location.href = "/";
-  }
+  }, []);
   return (
     <>
       <Header shop={shopData_} />
