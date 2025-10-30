@@ -13,8 +13,6 @@ import { useParams } from 'react-router-dom';
 const ShopPage = () => {
   const [shopData_, setShopData_] = useState([]);
   const { shopId } = useParams()
-  console.log(shopId)
-  console.log(shopData_)
   useEffect(() => {
     axios.get(`https://mrgenie.pythonanywhere.com/api/shop/${shopId}/`)
       .then(res => setShopData_(res.data))
